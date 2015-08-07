@@ -54,7 +54,7 @@
                 "email": "flyingmana@googlemail.com"
             },
             {
-                "name": "Jörg Weller",
+                "name": "J\u00f6rg Weller",
                 "email": "weller@flagbit.de"
             },
             {
@@ -1362,7 +1362,7 @@
         "license": [
             "BSD-3-Clause"
         ],
-        "description": "a component that aids in manipulating and validating » Uniform Resource Identifiers (URIs)",
+        "description": "a component that aids in manipulating and validating \u00bb Uniform Resource Identifiers (URIs)",
         "homepage": "https://github.com/zendframework/zend-uri",
         "keywords": [
             "uri",
@@ -2500,7 +2500,7 @@
         ],
         "authors": [
             {
-                "name": "Túbal Martín",
+                "name": "T\u00fabal Mart\u00edn",
                 "homepage": "http://tubalmartin.me/"
             }
         ],
@@ -2625,7 +2625,7 @@
                 "email": "typo3-coding@oliverklee.de"
             },
             {
-                "name": "Roman Ožana",
+                "name": "Roman O\u017eana",
                 "email": "ozana@omdesign.cz"
             }
         ],
@@ -2674,7 +2674,7 @@
                 "homepage": "https://github.com/agar"
             },
             {
-                "name": "Martin Jantošovič",
+                "name": "Martin Janto\u0161ovi\u010d",
                 "homepage": "https://github.com/Mordred"
             },
             {
@@ -2913,7 +2913,7 @@
                 "email": "igor@wiedler.ch"
             },
             {
-                "name": "Robert Schönthal",
+                "name": "Robert Sch\u00f6nthal",
                 "email": "seroscho@googlemail.com"
             }
         ],
@@ -3001,7 +3001,12 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/theme-frontend-luma",
@@ -3033,7 +3038,12 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/theme-adminhtml-backend",
@@ -3064,7 +3074,12 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-ui",
@@ -3098,7 +3113,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Ui\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-store",
@@ -3133,7 +3156,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Store\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-media-storage",
@@ -3167,7 +3198,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\MediaStorage\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-email",
@@ -3203,7 +3242,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Email\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-user",
@@ -3238,7 +3285,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\User\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-wishlist",
@@ -3286,7 +3341,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Wishlist\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-variable",
@@ -3320,7 +3383,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Variable\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-theme",
@@ -3363,7 +3434,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Theme\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-widget",
@@ -3400,7 +3479,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Widget\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-url-rewrite",
@@ -3437,7 +3524,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\UrlRewrite\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-cms",
@@ -3477,7 +3572,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Cms\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-cms-url-rewrite",
@@ -3511,7 +3614,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\CmsUrlRewrite\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-config",
@@ -3548,7 +3659,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Config\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-backend",
@@ -3595,7 +3714,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Backend\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-page-cache",
@@ -3629,7 +3756,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\PageCache\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-indexer",
@@ -3663,7 +3798,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Indexer\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-eav",
@@ -3699,7 +3842,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Eav\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-import-export",
@@ -3736,7 +3887,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\ImportExport\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-tax",
@@ -3780,7 +3939,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Tax\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-shipping",
@@ -3827,7 +3994,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Shipping\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-sales-sequence",
@@ -3858,7 +4033,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\SalesSequence\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-sales",
@@ -3912,7 +4095,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Sales\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-catalog",
@@ -3971,7 +4162,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Catalog\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-rule",
@@ -4007,7 +4206,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Rule\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-sales-rule",
@@ -4053,7 +4260,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\SalesRule\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-require-js",
@@ -4084,7 +4299,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\RequireJs\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-customer",
@@ -4137,7 +4360,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Customer\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-cron",
@@ -4170,7 +4401,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Cron\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-newsletter",
@@ -4210,7 +4449,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Newsletter\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-review",
@@ -4252,7 +4499,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Review\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-quote",
@@ -4298,7 +4553,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Quote\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-directory",
@@ -4333,7 +4596,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Directory\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-payment",
@@ -4370,7 +4641,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Payment\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-msrp",
@@ -4409,7 +4688,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Msrp\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-checkout",
@@ -4462,7 +4749,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Checkout\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-catalog-inventory",
@@ -4501,7 +4796,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\CatalogInventory\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-grouped-product",
@@ -4543,7 +4846,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\GroupedProduct\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-multishipping",
@@ -4582,7 +4893,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Multishipping\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-gift-message",
@@ -4622,7 +4941,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\GiftMessage\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-downloadable",
@@ -4669,7 +4996,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Downloadable\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-catalog-rule",
@@ -4708,7 +5043,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\CatalogRule\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-bundle",
@@ -4756,7 +5099,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Bundle\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-authorization",
@@ -4788,7 +5139,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "Authorization module provides access to Magento ACL functionality."
+        "description": "Authorization module provides access to Magento ACL functionality.",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Authorization\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-log",
@@ -4823,7 +5182,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Log\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-reports",
@@ -4871,7 +5238,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Reports\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-contact",
@@ -4906,7 +5281,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Contact\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-catalog-import-export",
@@ -4947,7 +5330,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\CatalogImportExport\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-catalog-url-rewrite",
@@ -4985,7 +5376,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\CatalogUrlRewrite\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-product-alert",
@@ -5020,7 +5419,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\ProductAlert\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-configurable-product",
@@ -5067,7 +5474,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\ConfigurableProduct\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-integration",
@@ -5103,7 +5518,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Integration\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-developer",
@@ -5135,7 +5558,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Developer\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-translation",
@@ -5170,7 +5601,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Translation\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-backup",
@@ -5204,7 +5643,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Backup\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-rss",
@@ -5238,7 +5685,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Rss\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-weee",
@@ -5280,7 +5735,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Weee\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-webapi",
@@ -5318,7 +5781,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Webapi\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-version",
@@ -5349,7 +5820,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Version\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-usps",
@@ -5389,7 +5868,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Usps\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-ups",
@@ -5427,7 +5914,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Ups\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-tax-import-export",
@@ -5462,7 +5957,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\TaxImportExport\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-sitemap",
@@ -5500,7 +6003,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Sitemap\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-send-friend",
@@ -5535,7 +6046,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\SendFriend\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-search",
@@ -5570,7 +6089,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Search\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-catalog-search",
@@ -5610,7 +6137,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\CatalogSearch\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-persistent",
@@ -5647,7 +6182,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Persistent\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-paypal",
@@ -5695,7 +6238,15 @@
         "license": [
             "proprietary"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Paypal\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-offline-shipping",
@@ -5736,7 +6287,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\OfflineShipping\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-offline-payments",
@@ -5769,7 +6328,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\OfflinePayments\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-layered-navigation",
@@ -5802,7 +6369,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\LayeredNavigation\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-grouped-import-export",
@@ -5838,7 +6413,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\GroupedImportExport\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-cookie",
@@ -5873,7 +6456,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Cookie\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-google-analytics",
@@ -5907,7 +6498,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\GoogleAnalytics\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-google-optimizer",
@@ -5943,7 +6542,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\GoogleOptimizer\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-google-adwords",
@@ -5976,7 +6583,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\GoogleAdwords\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-fedex",
@@ -6016,7 +6631,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Fedex\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-dhl",
@@ -6058,7 +6681,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Dhl\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-design-editor",
@@ -6096,7 +6727,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\DesignEditor\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-customer-import-export",
@@ -6133,7 +6772,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\CustomerImportExport\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-currency-symbol",
@@ -6169,7 +6816,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\CurrencySymbol\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-configurable-import-export",
@@ -6205,7 +6860,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\ConfigurableImportExport\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-checkout-agreements",
@@ -6239,7 +6902,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\CheckoutAgreements\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-catalog-widget",
@@ -6278,7 +6949,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\CatalogWidget\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-captcha",
@@ -6313,7 +6992,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Captcha\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-cache-invalidate",
@@ -6345,7 +7032,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\CacheInvalidate\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-bundle-import-export",
@@ -6381,7 +7076,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\BundleImportExport\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "braintree/braintree_php",
@@ -6474,7 +7177,15 @@
         "license": [
             "proprietary"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Braintree\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-authorizenet",
@@ -6511,7 +7222,15 @@
         "license": [
             "proprietary"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\Authorizenet\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-advanced-pricing-import-export",
@@ -6549,7 +7268,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\AdvancedPricingImportExport\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/module-admin-notification",
@@ -6584,7 +7311,15 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "N/A"
+        "description": "N/A",
+        "autoload": {
+            "psr-4": {
+                "Magento\\AdminNotification\\": ""
+            },
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/magento2-base",
@@ -7195,7 +7930,12 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "Chinese (China) language"
+        "description": "Chinese (China) language",
+        "autoload": {
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/language-pt_br",
@@ -7225,7 +7965,12 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "Portuguese (Brazil) language"
+        "description": "Portuguese (Brazil) language",
+        "autoload": {
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/language-nl_nl",
@@ -7255,7 +8000,12 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "Dutch (Netherlands) language"
+        "description": "Dutch (Netherlands) language",
+        "autoload": {
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/language-fr_fr",
@@ -7285,7 +8035,12 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "French (France) language"
+        "description": "French (France) language",
+        "autoload": {
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/language-es_es",
@@ -7315,7 +8070,12 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "Spanish (Spain) language"
+        "description": "Spanish (Spain) language",
+        "autoload": {
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/language-en_us",
@@ -7345,7 +8105,12 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "English (United States) language"
+        "description": "English (United States) language",
+        "autoload": {
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "magento/language-de_de",
@@ -7375,7 +8140,12 @@
             "OSL-3.0",
             "AFL-3.0"
         ],
-        "description": "German (Germany) language"
+        "description": "German (Germany) language",
+        "autoload": {
+            "files": [
+                "module-registration.php"
+            ]
+        }
     },
     {
         "name": "symfony/process",
@@ -8282,7 +9052,7 @@
         ],
         "authors": [
             {
-                "name": "Dariusz Rumiński",
+                "name": "Dariusz Rumi\u0144ski",
                 "email": "dariusz.ruminski@gmail.com"
             },
             {
