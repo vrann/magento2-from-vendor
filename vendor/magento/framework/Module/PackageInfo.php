@@ -62,6 +62,10 @@ class PackageInfo
      */
     private $string;
 
+    private $dirReader;
+
+    private $filesystem;
+
     /**
      * Constructor
      *
@@ -69,11 +73,17 @@ class PackageInfo
      * @param Dir\Reader $reader
      * @param \Magento\Framework\Stdlib\String $string
      */
-    public function __construct(ModuleList\Loader $loader, Dir\Reader $reader, String $string)
-    {
+    public function __construct(
+        ModuleList\Loader $loader,
+        Dir\Reader $reader, String $string,
+        \Magento\Framework\Module\Dir\Reader $reader,
+        \Magento\Framework\Filesystem $filesystem
+    ) {
         $this->loader = $loader;
         $this->reader = $reader;
         $this->string = $string;
+        $this->dirReader = $reader;
+        $this->filesystem = $filesystem;
     }
 
     /**
@@ -86,7 +96,8 @@ class PackageInfo
         if ($this->packageModuleMap === null) {
             $jsonData = $this->reader->getComposerJsonFiles()->toArray();
             foreach (array_keys($this->loader->load()) as $moduleName) {
-                $key = $this->string->upperCaseWords($moduleName, '_', '/') . '/composer.json';
+                $moduleDir = $this->filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::ROOT);
+                $key = $moduleDir->getRelativePath($this->dirReader->getModuleDir('', $moduleName) . '/composer.json');
                 if (isset($jsonData[$key])) {
                     $packageData = \Zend_Json::decode($jsonData[$key]);
                     if (isset($packageData['name'])) {

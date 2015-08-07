@@ -20,6 +20,10 @@ class Registrar implements ModuleRegistryInterface
      */
     private static $modulePaths = [];
 
+    private static $languages = [];
+
+    private static $themes = [];
+
     /**
      * Sets the location of a module. Necessary for modules which do not reside in modules directory
      *
@@ -30,6 +34,16 @@ class Registrar implements ModuleRegistryInterface
     public static function registerModule($moduleName, $path)
     {
         self::$modulePaths[$moduleName] = $path;
+    }
+
+    public static function registerTheme($moduleName, $path)
+    {
+        self::$themes[$moduleName] = $path;
+    }
+
+    public static function registerLanguage($moduleName, $path)
+    {
+        self::$languages[$moduleName] = $path;
     }
 
     /**

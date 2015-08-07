@@ -9,3 +9,7 @@ Load Magento 2 application from the vendor directory
 3. Copy project structure from magento2-base
 4. Add change-composer.php and run it
 5. Regenerate autoload for psr-4 and files with composer dump-autoload
+6. Add methods to register Language pack and Theme to Registrar
+7. Change \Magento\Framework\App\Filesystem\DirectoryList::MODULES to point to root
+8. Fix Setup not to depend on modules paths on app/code
+
