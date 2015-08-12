@@ -13,3 +13,13 @@ Load Magento 2 application from the vendor directory
 7. Change \Magento\Framework\App\Filesystem\DirectoryList::MODULES to point to root
 8. Fix Setup not to depend on modules paths on app/code
 
+8. Update theme collection to load themes from vendor Magento\Theme\Model\Theme\Collection
+9. Update File collectors to load static files from the vendor
+10. Disable validation of XML files because XSD is not in place
+11. Load template files from the vendor directory
+12. Update themes customizations to load from the Themes Directory
+13. Update Design/Fallback/RulePool, use module_path and theme_path placeholders instead of full path
+14. Introduce ThemeDir class which can provide theme path by theme name and theme name by theme path
+16. Modify Controller Action reader to read from modules directories.
+
+
