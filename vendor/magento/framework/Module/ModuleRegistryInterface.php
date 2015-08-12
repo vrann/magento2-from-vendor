@@ -26,4 +26,8 @@ interface ModuleRegistryInterface
      * @return null|string
      */
     public function getModulePath($moduleName);
+
+    public function getThemesPaths();
+
+    public function getModuleName($path);
 }

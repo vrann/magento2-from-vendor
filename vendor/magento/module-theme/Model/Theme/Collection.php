@@ -38,6 +38,10 @@ class Collection extends \Magento\Framework\Data\Collection implements ListInter
      */
     protected $themeConfigFactory;
 
+    private $themeDirs;
+
+    private $rootDirectory;
+
     /**
      * @param \Magento\Framework\Data\Collection\EntityFactory $entityFactory
      * @param \Magento\Framework\Filesystem $filesystem
@@ -46,11 +50,14 @@ class Collection extends \Magento\Framework\Data\Collection implements ListInter
     public function __construct(
         \Magento\Framework\Data\Collection\EntityFactory $entityFactory,
         \Magento\Framework\Filesystem $filesystem,
-        \Magento\Framework\Config\ThemeFactory $themeConfigFactory
+        \Magento\Framework\Config\ThemeFactory $themeConfigFactory,
+        \Magento\Framework\Module\ThemeDir $themeDirs
     ) {
         parent::__construct($entityFactory);
         $this->_directory = $filesystem->getDirectoryRead(DirectoryList::THEMES);
+        $this->rootDirectory = $filesystem->getDirectoryRead(DirectoryList::ROOT);
         $this->themeConfigFactory = $themeConfigFactory;
+        $this->themeDirs = $themeDirs;
     }
 
     /**
@@ -61,7 +68,7 @@ class Collection extends \Magento\Framework\Data\Collection implements ListInter
      */
     public function addDefaultPattern($area = \Magento\Framework\App\Area::AREA_FRONTEND)
     {
-        $this->addTargetPattern(implode('/', [$area, '{*/*,*/}', 'theme.xml']));
+        $this->addTargetPattern(implode('/', [$area, '{*/*,*/,/}', 'theme.xml']));
         return $this;
     }
 
@@ -129,6 +136,11 @@ class Collection extends \Magento\Framework\Data\Collection implements ListInter
             }
             $pathsToThemeConfig = array_merge($pathsToThemeConfig, $themeConfigs);
         }
+        $themeConfigs = [];
+        foreach ($this->themeDirs->search('/theme.xml') as $themeConfigPath) {
+            $themeConfigs[] = $this->rootDirectory->getAbsolutePath($themeConfigPath);
+        }
+        $pathsToThemeConfig = array_merge($pathsToThemeConfig, $themeConfigs);
 
         $this->_loadFromFilesystem(
             $pathsToThemeConfig
@@ -184,10 +196,16 @@ class Collection extends \Magento\Framework\Data\Collection implements ListInter
     protected function _preparePathData($configPath)
     {
         $themeDirectory = dirname($configPath);
-        $fullPath = trim(substr($themeDirectory, strlen($this->_directory->getAbsolutePath())), '/');
-        $pathPieces = explode('/', $fullPath);
-        $area = array_shift($pathPieces);
-        return ['area' => $area, 'theme_path_pieces' => $pathPieces];
+        if ($this->_directory->isExist($themeDirectory))
+        {
+            $fullPath = $this->_directory->getRelativePath($themeDirectory);
+            $pathPieces = explode('/', $fullPath);
+            $area = array_shift($pathPieces);
+            return ['area' => $area, 'theme_path_pieces' => $pathPieces];
+        } else {
+            $fullPath = $this->rootDirectory->getRelativePath($themeDirectory);
+            return $this->themeDirs->getAreaConfiguration($fullPath);
+        }
     }
 
     /**
@@ -267,9 +285,9 @@ class Collection extends \Magento\Framework\Data\Collection implements ListInter
      */
     protected function _getConfigModel($configPath)
     {
-        $relativeConfigPath = $this->_directory->getRelativePath($configPath);
-        $configContent = $this->_directory->isExist($relativeConfigPath) ?
-            $this->_directory->readFile($relativeConfigPath) : null;
+        $relativeConfigPath = $this->rootDirectory->getRelativePath($configPath);
+        $configContent = $this->rootDirectory->isExist($relativeConfigPath) ?
+            $this->rootDirectory->readFile($relativeConfigPath) : null;
         return $this->themeConfigFactory->create(['configContent' => $configContent]);
     }
 

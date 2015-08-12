@@ -54,11 +54,21 @@ class Registrar implements ModuleRegistryInterface
         return self::$modulePaths;
     }
 
+    public function getThemesPaths()
+    {
+        return self::$themes;
+    }
+
     /**
      * {@inheritdoc}
      */
     public function getModulePath($moduleName)
     {
         return isset(self::$modulePaths[$moduleName]) ? self::$modulePaths[$moduleName] : null;
+    }
+
+    public function getModuleName($path)
+    {
+        return array_search($path, self::$modulePaths);
     }
 }

@@ -67,6 +67,8 @@ class Validator
      */
     protected $_compiledDir;
 
+    protected $_rootDir;
+
     /**
      * Class constructor
      *
@@ -83,6 +85,7 @@ class Validator
         $this->_isAllowSymlinks = $scopeConfigInterface->getValue(self::XML_PATH_TEMPLATE_ALLOW_SYMLINK, $scope);
         $this->_themesDir = $this->_filesystem->getDirectoryRead(DirectoryList::THEMES)->getAbsolutePath();
         $this->_appDir = $this->_filesystem->getDirectoryRead(DirectoryList::APP)->getAbsolutePath();
+        $this->_rootDir = $this->_filesystem->getDirectoryRead(DirectoryList::ROOT)->getAbsolutePath();
         $this->_compiledDir = $this->_filesystem->getDirectoryRead(DirectoryList::TEMPLATE_MINIFICATION_DIR)
             ->getAbsolutePath();
     }
@@ -106,6 +109,7 @@ class Validator
                 ($this->isPathInDirectory($filename, $this->_compiledDir)
                 || $this->isPathInDirectory($filename, $this->_appDir)
                 || $this->isPathInDirectory($filename, $this->_themesDir)
+                || $this->isPathInDirectory($filename, $this->_rootDir)
                 || $this->_isAllowSymlinks)
                 && $this->getRootDirectory()->isFile($this->getRootDirectory()->getRelativePath($filename));
         }

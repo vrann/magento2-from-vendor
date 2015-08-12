@@ -44,6 +44,7 @@ class Reader implements UiReaderInterface
     ) {
         $this->converter = $converter;
         $this->domMerger = $domMerger;
+
         $this->readFiles($fileCollector->collectFiles());
     }
 

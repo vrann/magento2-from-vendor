@@ -32,6 +32,10 @@ class Base implements CollectorInterface
      */
     protected $themesDirectory;
 
+    protected $rootDirectory;
+
+    protected $themeDir;
+
     /**
      * @var string
      */
@@ -47,11 +51,14 @@ class Base implements CollectorInterface
     public function __construct(
         Filesystem $filesystem,
         Factory $fileFactory,
+        \Magento\Framework\Module\ThemeDir $themeDir,
         $subDir = ''
     ) {
         $this->themesDirectory = $filesystem->getDirectoryRead(DirectoryList::THEMES);
         $this->fileFactory = $fileFactory;
         $this->subDir = $subDir ? $subDir . '/' : '';
+        $this->themeDir = $themeDir;
+        $this->rootDirectory = $filesystem->getDirectoryRead(DirectoryList::ROOT);
     }
 
     /**
@@ -65,8 +72,8 @@ class Base implements CollectorInterface
     {
         $namespace = $module = '*';
         $themePath = $theme->getFullPath();
-        $searchPattern = "{$themePath}/{$namespace}_{$module}/{$this->subDir}{$filePath}";
-        $files = $this->themesDirectory->search($searchPattern);
+        $searchPattern = "{$namespace}_{$module}/{$this->subDir}{$filePath}";
+        $files = $this->rootDirectory->search($searchPattern, $this->themeDir->getPathByKey($themePath));
         $result = [];
         $pattern = "#(?<moduleName>[^/]+)/{$this->subDir}" . strtr(preg_quote($filePath), ['\*' => '[^/]+'])
             . "$#i";

@@ -67,7 +67,6 @@ class Simple implements Fallback\ResolverInterface
             }
             $path = $this->resolveFile($this->rulePool->getRule($type), $file, $params);
             $cachedValue = $path ? $this->rootDirectory->getRelativePath($path) : '';
-
             $this->cache->saveToCache($cachedValue, $type, $file, $area, $themePath, $locale, $module);
         }
         return $path;

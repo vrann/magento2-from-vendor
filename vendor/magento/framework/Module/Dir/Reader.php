@@ -85,6 +85,17 @@ class Reader
         return $this->fileIteratorFactory->create($this->modulesDirectory, $result);
     }
 
+    public function search($pattern, $path = null)
+    {
+        $result = [];
+        foreach ($this->modulesList->getNames() as $moduleName) {
+            $path = $this->getModuleDir('', $moduleName);
+            $files = $this->modulesDirectory->search($pattern, $path);
+            $result = array_merge($result, $files);
+        }
+        return $result;
+    }
+
     /**
      * Go through all modules and find composer.json files of active modules
      *
@@ -119,10 +130,14 @@ class Reader
             $dirIterator = new \RecursiveDirectoryIterator($actionDir, \RecursiveDirectoryIterator::SKIP_DOTS);
             $recursiveIterator = new \RecursiveIteratorIterator($dirIterator, \RecursiveIteratorIterator::LEAVES_ONLY);
             /** @var \SplFileInfo $actionFile */
+            $namespace = str_replace('_', '\\', $moduleName);
             foreach ($recursiveIterator as $actionFile) {
-                $actions[] = $this->modulesDirectory->getRelativePath($actionFile->getPathname());
+                $actionName = str_replace('/', '\\', str_replace($actionDir, '', $actionFile->getPathname()));
+                $action = $namespace . "\\Controller" . substr($actionName, 0, -4);
+                $actions[strtolower($action)] = $action;
             }
         }
+
         return $actions;
     }
 

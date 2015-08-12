@@ -24,16 +24,26 @@ class Simple implements RuleInterface
      */
     protected $pattern;
 
+    protected $themeDir;
+
+    protected $moduleDirReader;
+
     /**
      * Constructor
      *
      * @param string $pattern
      * @param array $optionalParams
      */
-    public function __construct($pattern, array $optionalParams = [])
-    {
+    public function __construct(
+        \Magento\Framework\Module\ThemeDir $themeDir,
+        \Magento\Framework\Module\Dir\Reader $moduleDirReader,
+        $pattern,
+        array $optionalParams = []
+    ) {
         $this->pattern = $pattern;
         $this->optionalParams = $optionalParams;
+        $this->themeDir = $themeDir;
+        $this->moduleDirReader = $moduleDirReader;
     }
 
     /**
@@ -46,6 +56,14 @@ class Simple implements RuleInterface
     public function getPatternDirs(array $params)
     {
         $pattern = $this->pattern;
+        if (strpos($pattern, '<module_dir>/<namespace>/<module>') !== false) {
+            $path = $this->moduleDirReader->getModuleDir('', $params['namespace'] . '_' . $params['module']);
+            $pattern = str_replace('<module_dir>/<namespace>/<module>', $path, $pattern);
+        }
+        if (strpos($pattern, '<theme_dir>/<area>/<theme_path>') !== false) {
+            $path = $this->themeDir->getPathByKey($params['area'] . '/' . $params['theme_path']);
+            $pattern = str_replace('<theme_dir>/<area>/<theme_path>', $path, $pattern);
+        }
         if (preg_match_all('/<([a-zA-Z\_]+)>/', $pattern, $matches)) {
             foreach ($matches[1] as $placeholder) {
                 if (empty($params[$placeholder])) {

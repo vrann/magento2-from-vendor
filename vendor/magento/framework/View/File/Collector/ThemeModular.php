@@ -37,6 +37,10 @@ class ThemeModular implements CollectorInterface
      */
     protected $subDir;
 
+    private $themeDirs;
+
+    private $modulesDir;
+
     /**
      * Constructor
      *
@@ -47,11 +51,14 @@ class ThemeModular implements CollectorInterface
     public function __construct(
         Filesystem $filesystem,
         Factory $fileFactory,
+        \Magento\Framework\Module\ThemeDir $themeDirs,
         $subDir = ''
     ) {
         $this->themesDirectory = $filesystem->getDirectoryRead(DirectoryList::THEMES);
+        $this->themeDirs = $themeDirs;
         $this->fileFactory = $fileFactory;
         $this->subDir = $subDir ? $subDir . '/' : '';
+        $this->modulesDir = $filesystem->getDirectoryRead(DirectoryList::MODULES);;
     }
 
     /**
@@ -66,11 +73,12 @@ class ThemeModular implements CollectorInterface
         $namespace = $module = '*';
         $themePath = $theme->getFullPath();
         $files = $this->themesDirectory->search("{$themePath}/{$namespace}_{$module}/{$this->subDir}{$filePath}");
+        $files = array_merge($files, $this->modulesDir->search("{$namespace}_{$module}/{$this->subDir}{$filePath}", $this->themeDirs->getPathByKey($themePath)));
         $result = [];
         $pattern = "#/(?<moduleName>[^/]+)/{$this->subDir}"
             . strtr(preg_quote($filePath), ['\*' => '[^/]+']) . "$#i";
         foreach ($files as $file) {
-            $filename = $this->themesDirectory->getAbsolutePath($file);
+            $filename = $this->modulesDir->getAbsolutePath($file);
             if (!preg_match($pattern, $filename, $matches)) {
                 continue;
             }

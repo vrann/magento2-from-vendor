@@ -38,6 +38,10 @@ class Base implements CollectorInterface
      */
     protected $subDir;
 
+    protected $moduleReader;
+
+    private $moduleRegistry;
+
     /**
      * Constructor
      *
@@ -48,11 +52,15 @@ class Base implements CollectorInterface
     public function __construct(
         Filesystem $filesystem,
         Factory $fileFactory,
+        \Magento\Framework\Module\Dir\Reader $moduleReader,
+        \Magento\Framework\Module\ModuleRegistryInterface $moduleRegistry,
         $subDir = ''
     ) {
+        $this->moduleRegistry = $moduleRegistry;
         $this->modulesDirectory = $filesystem->getDirectoryRead(DirectoryList::MODULES);
         $this->fileFactory = $fileFactory;
         $this->subDir = $subDir ? $subDir . '/' : '';
+        $this->moduleReader = $moduleReader;
     }
 
     /**
@@ -66,27 +74,32 @@ class Base implements CollectorInterface
     {
         $result = [];
         $namespace = $module = '*';
-        $sharedFiles = $this->modulesDirectory->search("{$namespace}/{$module}/view/base/{$this->subDir}{$filePath}");
+        $sharedFiles = $this->moduleReader->search("/view/base/{$this->subDir}{$filePath}");
 
         $filePathPtn = strtr(preg_quote($filePath), ['\*' => '[^/]+']);
         $pattern = "#(?<namespace>[^/]+)/(?<module>[^/]+)/view/base/{$this->subDir}" . $filePathPtn . "$#i";
         foreach ($sharedFiles as $file) {
+
             $filename = $this->modulesDirectory->getAbsolutePath($file);
-            if (!preg_match($pattern, $filename, $matches)) {
-                continue;
-            }
-            $moduleFull = "{$matches['namespace']}_{$matches['module']}";
+            $modulePath = preg_replace('/\/view\/base\/.*/', "", $filename);
+            $moduleFull = $this->moduleRegistry->getModuleName($modulePath);
+//            if (!preg_match($pattern, $filename, $matches)) {
+//                continue;
+//            }
+            //$moduleFull = "{$matches['namespace']}_{$matches['module']}";
             $result[] = $this->fileFactory->create($filename, $moduleFull, null, true);
         }
         $area = $theme->getData('area');
-        $themeFiles = $this->modulesDirectory->search("{$namespace}/{$module}/view/{$area}/{$this->subDir}{$filePath}");
+        $themeFiles = $this->moduleReader->search("/view/{$area}/{$this->subDir}{$filePath}");
         $pattern = "#(?<namespace>[^/]+)/(?<module>[^/]+)/view/{$area}/{$this->subDir}" . $filePathPtn . "$#i";
         foreach ($themeFiles as $file) {
             $filename = $this->modulesDirectory->getAbsolutePath($file);
-            if (!preg_match($pattern, $filename, $matches)) {
-                continue;
-            }
-            $moduleFull = "{$matches['namespace']}_{$matches['module']}";
+            $modulePath = preg_replace('/\/view\/.*/', "", $filename);
+            $moduleFull = $this->moduleRegistry->getModuleName($modulePath);
+            //if (!preg_match($pattern, $filename, $matches)) {
+            //    continue;
+            //}
+            //$moduleFull = "{$matches['namespace']}_{$matches['module']}";
             $result[] = $this->fileFactory->create($filename, $moduleFull);
         }
         return $result;

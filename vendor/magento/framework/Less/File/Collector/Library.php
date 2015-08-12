@@ -38,6 +38,10 @@ class Library implements CollectorInterface
      */
     protected $fileListFactory;
 
+    protected $rootDirectory;
+
+    protected $themeDir;
+
     /**
      * @param FileListFactory $fileListFactory
      * @param Filesystem $filesystem
@@ -46,12 +50,15 @@ class Library implements CollectorInterface
     public function __construct(
         FileListFactory $fileListFactory,
         Filesystem $filesystem,
-        Factory $fileFactory
+        Factory $fileFactory,
+        \Magento\Framework\Module\ThemeDir $themeDir
     ) {
         $this->fileListFactory = $fileListFactory;
         $this->libraryDirectory = $filesystem->getDirectoryRead(DirectoryList::LIB_WEB);
         $this->themesDirectory = $filesystem->getDirectoryRead(DirectoryList::THEMES);
+        $this->rootDirectory = $filesystem->getDirectoryRead(DirectoryList::ROOT);
         $this->fileFactory = $fileFactory;
+        $this->themeDir = $themeDir;
     }
 
     /**
@@ -69,7 +76,8 @@ class Library implements CollectorInterface
 
         foreach ($theme->getInheritedThemes() as $currentTheme) {
             $themeFullPath = $currentTheme->getFullPath();
-            $files = $this->themesDirectory->search("{$themeFullPath}/web/{$filePath}");
+            $files = $this->rootDirectory->search("web/{$filePath}", $this->themeDir->getPathByKey($themeFullPath));
+            //$files = $this->themesDirectory->search("{$themeFullPath}/web/{$filePath}");
             $list->replace($this->createFiles($this->themesDirectory, $theme, $files), false);
         }
         return $list->getAll();

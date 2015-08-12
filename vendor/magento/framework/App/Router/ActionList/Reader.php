@@ -13,12 +13,17 @@ class Reader
      */
     protected $moduleReader;
 
+    private $registrar;
+
     /**
      * @param \Magento\Framework\Module\Dir\Reader $moduleReader
      */
-    public function __construct(\Magento\Framework\Module\Dir\Reader $moduleReader)
-    {
+    public function __construct(
+        \Magento\Framework\Module\Dir\Reader $moduleReader,
+        \Magento\Framework\Module\Registrar $registrar
+    ) {
         $this->moduleReader = $moduleReader;
+        $this->registrar = $registrar;
     }
 
     /**
@@ -29,11 +34,7 @@ class Reader
     public function read()
     {
         $actionFiles = $this->moduleReader->getActionFiles();
-        $actions = [];
-        foreach ($actionFiles as $actionFile) {
-            $action = str_replace('/', '\\', substr($actionFile, 0, -4));
-            $actions[strtolower($action)] = $action;
-        }
-        return $actions;
+
+        return $actionFiles;
     }
 }

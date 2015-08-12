@@ -49,6 +49,8 @@ class Path
      */
     protected $themeDirectoryRead;
 
+    private $themeDirs;
+
     /**
      * Constructor
      *
@@ -57,12 +59,14 @@ class Path
      */
     public function __construct(
         \Magento\Framework\Filesystem $filesystem,
+        \Magento\Framework\Module\ThemeDir $themeDirs,
         $filename = \Magento\Framework\View\ConfigInterface::CONFIG_FILE_NAME
     ) {
         $this->filesystem = $filesystem;
         $this->filename = $filename;
         $this->mediaDirectoryRead = $this->filesystem->getDirectoryRead(DirectoryList::MEDIA);
         $this->themeDirectoryRead = $this->filesystem->getDirectoryRead(DirectoryList::THEMES);
+        $this->themeDirs = $themeDirs;
     }
 
     /**
@@ -90,7 +94,10 @@ class Path
     {
         $path = null;
         if ($theme->getFullPath()) {
-            $path = $this->themeDirectoryRead->getAbsolutePath($theme->getFullPath());
+            $path = $this->themeDirs->getPathByKey($theme->getFullPath());
+            if (!$path) {
+                $path = $this->themeDirectoryRead->getAbsolutePath($theme->getFullPath());
+            }
         }
         return $path;
     }
