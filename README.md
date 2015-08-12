@@ -21,5 +21,6 @@ Load Magento 2 application from the vendor directory
 13. Update Design/Fallback/RulePool, use module_path and theme_path placeholders instead of full path
 14. Introduce ThemeDir class which can provide theme path by theme name and theme name by theme path
 16. Modify Controller Action reader to read from modules directories.
+15. Point the unit tests to the vendor location
 
 
